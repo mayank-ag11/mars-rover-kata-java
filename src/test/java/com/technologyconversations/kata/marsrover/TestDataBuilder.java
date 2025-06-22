@@ -5,8 +5,33 @@ import java.util.List;
 
 public class TestDataBuilder {
 
+    public static RoverBuilder rover() {
+        return new RoverBuilder();
+    }
+
     public static CoordinatesBuilder coordinates() {
         return new CoordinatesBuilder();
+    }
+
+    static class RoverBuilder {
+        private Coordinates coordinates;
+
+        RoverBuilder() {
+            this(new CoordinatesBuilder().build());
+        }
+
+        RoverBuilder(Coordinates coordinates) {
+            this.coordinates = coordinates;
+        }
+
+        public RoverBuilder with(CoordinatesBuilder coordinates) {
+            this.coordinates = coordinates.build();
+            return this;
+        }
+
+        public Rover build() {
+            return new Rover(coordinates);
+        }
     }
 
     static class CoordinatesBuilder {
@@ -36,12 +61,12 @@ public class TestDataBuilder {
             return this;
         }
 
-        public CoordinatesBuilder direction(Direction direction) {
+        public CoordinatesBuilder with(Direction direction) {
             this.direction = direction;
             return this;
         }
 
-        public CoordinatesBuilder obstacles(List<Obstacle> obstacles) {
+        public CoordinatesBuilder with(List<Obstacle> obstacles) {
             this.obstacles = obstacles;
             return this;
         }

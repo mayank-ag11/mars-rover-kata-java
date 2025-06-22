@@ -12,7 +12,7 @@ public class CoordinatesTest {
     public void shouldMoveForwardTowardsNorth() {
         Coordinates coordinates = coordinates()
             .y(new Point(1, 8))
-            .direction(Direction.NORTH)
+            .with(Direction.NORTH)
             .build();
 
         coordinates.moveForward();
@@ -23,7 +23,7 @@ public class CoordinatesTest {
     public void shouldMoveForwardTowardsEast() {
         Coordinates coordinates = coordinates()
             .x(new Point(1, 8))
-            .direction(Direction.EAST)
+            .with(Direction.EAST)
             .build();
 
         coordinates.moveForward();
@@ -34,7 +34,7 @@ public class CoordinatesTest {
     public void shouldMoveForwardTowardsSouth() {
         Coordinates coordinates = coordinates()
             .y(new Point(1, 8))
-            .direction(Direction.SOUTH)
+            .with(Direction.SOUTH)
             .build();
 
         coordinates.moveForward();
@@ -45,7 +45,7 @@ public class CoordinatesTest {
     public void shouldMoveForwardTowardsWest() {
         Coordinates coordinates = coordinates()
             .x(new Point(1, 8))
-            .direction(Direction.WEST)
+            .with(Direction.WEST)
             .build();
 
         coordinates.moveForward();
@@ -56,7 +56,7 @@ public class CoordinatesTest {
     public void shouldMoveBackwardTowardsSouth_givenCurrentDirectionIsNorth() {
         Coordinates coordinates = coordinates()
             .y(new Point(1, 8))
-            .direction(Direction.NORTH)
+            .with(Direction.NORTH)
             .build();
 
         coordinates.moveBackward();
@@ -67,7 +67,7 @@ public class CoordinatesTest {
     public void shouldMoveBackwardTowardsWest_givenCurrentDirectionIsEast() {
         Coordinates coordinates = coordinates()
             .x(new Point(1, 8))
-            .direction(Direction.EAST)
+            .with(Direction.EAST)
             .build();
 
         coordinates.moveBackward();
@@ -78,7 +78,7 @@ public class CoordinatesTest {
     public void shouldMoveBackwardTowardsNorth_givenCurrentDirectionIsSouth() {
         Coordinates coordinates = coordinates()
             .y(new Point(1, 8))
-            .direction(Direction.SOUTH)
+            .with(Direction.SOUTH)
             .build();
 
         coordinates.moveBackward();
@@ -89,7 +89,7 @@ public class CoordinatesTest {
     public void shouldMoveBackwardTowardsEast_givenCurrentDirectionIsWest() {
         Coordinates coordinates = coordinates()
             .x(new Point(1, 8))
-            .direction(Direction.WEST)
+            .with(Direction.WEST)
             .build();
 
         coordinates.moveBackward();
@@ -99,7 +99,7 @@ public class CoordinatesTest {
     @Test
     public void shouldChangeDirectionToWest_givenCurrentDirectionIsNorth() {
         Coordinates coordinates = TestDataBuilder.coordinates()
-            .direction(Direction.NORTH)
+            .with(Direction.NORTH)
             .build();
 
         coordinates.changeDirectionLeft();
@@ -109,7 +109,7 @@ public class CoordinatesTest {
     @Test
     public void shouldChangeDirectionToEast_givenCurrentDirectionIsNorth() {
         Coordinates coordinates = TestDataBuilder.coordinates()
-            .direction(Direction.NORTH)
+            .with(Direction.NORTH)
             .build();
 
         coordinates.changeDirectionRight();
@@ -126,7 +126,7 @@ public class CoordinatesTest {
     @Test
     public void shouldPrintCoordinatesWithStatusObstacleFound() {
         Coordinates coordinates = TestDataBuilder.coordinates()
-            .obstacles(Collections.singletonList(new Obstacle(0, 1)))
+            .with(Collections.singletonList(new Obstacle(0, 1)))
             .build();
 
         coordinates.moveForward();
