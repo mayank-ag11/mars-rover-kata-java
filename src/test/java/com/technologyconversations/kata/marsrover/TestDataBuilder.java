@@ -1,7 +1,3 @@
-/*
- * Copyright 2025 Smarsh Inc.
- */
-
 package com.technologyconversations.kata.marsrover;
 
 import java.util.ArrayList;
